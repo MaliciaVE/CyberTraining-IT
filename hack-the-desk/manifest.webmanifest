@@ -1,0 +1,8 @@
+{
+  "name": "Hack the Desk 2.0",
+  "short_name": "Hack the Desk",
+  "start_url": "./",
+  "display": "fullscreen",
+  "background_color": "#020611",
+  "theme_color": "#050b18"
+}

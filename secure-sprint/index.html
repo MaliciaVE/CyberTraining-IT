@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Secure Sprint, a cyber awareness decision game for IT teams and developers.">
+  <title>Secure Sprint | Developer Cyber Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="aurora a1"></div><div class="aurora a2"></div>
+  <header class="topbar">
+    <button class="brand" data-screen="home" aria-label="Go to home"><span class="brand-icon">✓</span> SECURE SPRINT</button>
+    <button class="text-button" data-screen="leaderboard">🏆 Leaderboard</button>
+  </header>
+
+  <main class="shell">
+    <section id="home" class="screen active hero">
+      <div class="hero-copy">
+        <p class="eyebrow">DEVELOPER CYBER CHALLENGE</p>
+        <h1>Ship smart.<br><span>Stay secure.</span></h1>
+        <p class="lead">You are guiding an IT delivery team through a difficult release day. Make practical security decisions, protect trust and keep remediation within SLA.</p>
+        <div class="actions"><button id="start-btn" class="primary">Start the sprint →</button><button class="secondary" data-screen="leaderboard">View leaderboard</button></div>
+        <div class="feature-row"><span>7 workplace scenarios</span><span>Decision-based gameplay</span><span>No code review required</span></div>
+      </div>
+      <div class="mission-preview card">
+        <div class="window-bar"><i></i><i></i><i></i><small>release-day.log</small></div>
+        <div class="preview-body">
+          <p class="comment">// Your release-day principles</p>
+          <p><b>01</b> Protect sensitive information</p><p><b>02</b> Verify before you trust</p><p><b>03</b> Keep security controls active</p><p><b>04</b> Own findings through closure</p>
+          <div class="mini-grid"><div><strong>SLA</strong><small>Act on time</small></div><div><strong>TRUST</strong><small>Protect users</small></div><div><strong>DELIVERY</strong><small>Keep momentum</small></div><div><strong>RANK</strong><small>Build securely</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="game" class="screen game-wrap">
+      <div class="meters">
+        <div class="meter"><small>⏱ TIME</small><strong id="time">120s</strong></div>
+        <div class="meter"><small>⚡ SCORE</small><strong id="score">0</strong></div>
+        <div class="meter"><small>🛡 TRUST</small><strong id="trust">70%</strong></div>
+        <div class="meter"><small>🚀 DELIVERY</small><strong id="delivery">70%</strong></div>
+      </div>
+      <div class="mission-line"><span id="mission-count">Mission 1 of 7</span><span id="mission-topic"></span></div>
+      <div class="progress"><div id="progress-bar"></div></div>
+      <article class="card scenario-card">
+        <span id="scenario-icon" class="scenario-icon"></span>
+        <p id="scenario-kicker" class="eyebrow"></p>
+        <h2 id="scenario-title"></h2>
+        <p id="scenario-text" class="scenario-text"></p>
+        <div id="context-box" class="context-box"></div>
+        <p class="prompt">What do you do?</p>
+        <div id="choices" class="choices"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <button id="next-btn" class="primary full hidden">Next decision →</button>
+      </article>
+    </section>
+
+    <section id="result" class="screen result-wrap">
+      <div class="result-icon">🏆</div><p class="eyebrow">SPRINT COMPLETE</p><h2 id="final-score" class="big-score">0</h2><h3 id="final-rank"></h3><p id="result-message" class="lead compact"></p>
+      <div class="result-grid"><div class="meter"><small>DECISIONS</small><strong id="decision-score"></strong></div><div class="meter"><small>TIME BONUS</small><strong id="time-bonus"></strong></div><div class="meter"><small>TRUST</small><strong id="final-trust"></strong></div><div class="meter"><small>DELIVERY</small><strong id="final-delivery"></strong></div></div>
+      <div class="card name-card"><h3>Add your nickname to the leaderboard</h3><p>Use a nickname only. Do not enter personal or confidential information.</p><div class="name-row"><input id="nickname" maxlength="18" autocomplete="off" placeholder="Your nickname"><button id="save-score" class="primary">Add score</button></div><p id="save-status" class="status"></p></div>
+      <div class="actions centre"><button id="share-btn" class="secondary">Copy result</button><button id="replay-btn" class="secondary">Play again</button><button class="primary" data-screen="leaderboard">Leaderboard</button></div>
+    </section>
+
+    <section id="leaderboard" class="screen board-wrap">
+      <div class="board-head"><div><p class="eyebrow">HALL OF SECURE BUILDERS</p><h2>Leaderboard</h2></div><button id="board-start" class="primary">New sprint</button></div>
+      <div class="card board-card"><div id="board-loading" class="empty">Loading scores…</div><ol id="score-list"></ol></div>
+      <p id="board-mode" class="board-note"></p>
+    </section>
+  </main>
+  <footer>Cyber awareness training game · Built for GitHub Pages</footer>
+</body>
+</html>
