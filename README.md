@@ -12,13 +12,6 @@ This package is ready to upload to the root of the existing `CyberTraining-IT` G
 Upload the **contents of this ZIP** to the root of the existing repository. The root `index.html` becomes the common landing page. GitHub Pages can continue to publish the `main` branch from `/ (root)`.
 
 ## Access password
-Initial demo password: `hackthedesk`.
-
-Before publishing, replace `PASSWORD_SHA256` in `access-config.js` with the SHA-256 hash of the password you want to use.
-
-Example:
-```bash
-printf %s 'YOUR-NEW-PASSWORD' | sha256sum
-```
+Ask to Malicia
 
 Important: GitHub Pages is static and public. This client-side password gate helps control workshop entry but is not strong authentication and should not protect confidential information.
